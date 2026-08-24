@@ -1,0 +1,22 @@
+[Unit]
+Description=Vorsorge-Ordner (FastAPI Web-App)
+Documentation=https://github.com/HatchetMan111/VorsorgeOrdner
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=vorsorge
+Group=vorsorge
+WorkingDirectory=/opt/vorsorgeordner/app
+ExecStart=/opt/vorsorgeordner/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8080
+Restart=always
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

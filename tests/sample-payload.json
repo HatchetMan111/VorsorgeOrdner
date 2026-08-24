@@ -1,0 +1,58 @@
+{
+  "person": {"name": "Max Mustermann", "geburtsdatum": "1970-01-01", "geburtsort": "Musterstadt", "anschrift": "Musterweg 1, 12345 Musterstadt"},
+  "vertrauenspersonen": {
+    "haupt": {"name": "Erika Mustermann", "beziehung": "Ehefrau", "telefon": "0123 456789", "adresse": "Musterweg 1, 12345 Musterstadt"},
+    "ersatz": {"name": "Kevin Kind", "beziehung": "Sohn", "telefon": "0987 654321", "adresse": "Beispielgasse 2, 54321 Beispielburg"},
+    "familie": [
+      {"name": "Kevin Kind", "beziehung": "Sohn", "geburtsdatum": "2000-05-10"},
+      {"name": "Lena Kind", "beziehung": "Tochter", "geburtsdatum": "2012-03-03"}
+    ]
+  },
+  "vorsorgevollmacht": {
+    "status": "Erstellt",
+    "aufbewahrung": "Schreibtisch, gelber Umschlag",
+    "register_eingetragen": true,
+    "bevollmaechtigter": {"name": "Erika Mustermann", "anschrift": "Musterweg 1"},
+    "ersatz_bevollmaechtigter": {"name": "Kevin Kind", "anschrift": "Beispielgasse 2"},
+    "bereiche": ["Gesundheitssorge", "Vermögenssorge/Bankgeschäfte"],
+    "ueber_tod_hinaus": true
+  },
+  "patientenverfuegung": {
+    "status": "In Arbeit",
+    "aufbewahrung": "Hausarzt + Ordner",
+    "situationen": ["Unheilbare, zum Tode führende Erkrankung"],
+    "lebenserhaltend": "Nein",
+    "wiederbelebung": "Nach ärztlicher Einschätzung",
+    "kuenstliche_ernaehrung": "",
+    "schmerzlinderung": "Ja"
+  },
+  "medizin": {
+    "hausarzt_name": "Dr. med. Hausbesuch",
+    "hausarzt_praxis": "Praxis am Park",
+    "hausarzt_telefon": "0123 111222",
+    "blutgruppe": "A+",
+    "allergien": "Penicillin, Katzen",
+    "diagnosen": "Bluthochdruck",
+    "medikamente": [{"name": "Ramipril", "dosierung": "5 mg/Tag"}]
+  },
+  "testament": {
+    "art": "Eigenhändiges Testament (handschriftlich)",
+    "erben": [{"name": "Erika Mustermann", "beziehung": "Ehefrau", "anteil": "100%", "ersatzerbe": "Kevin Kind"}]
+  },
+  "bank": {
+    "vollmacht_erteilt": "Geplant",
+    "vollmacht_an": "Erika Mustermann",
+    "banken": [{"institut": "Sparkasse Musterstadt", "ansprechpartner": "Frau Schulz", "kontoart": "Girokonto"}]
+  },
+  "digital": {
+    "passwort_manager": "Bitwarden (Familien-Vault)",
+    "konten": [{"dienst": "Google", "benutzername": "max@example.de", "aktion": "Übertragen"}]
+  },
+  "bestattung": {"art": "Feuerbestattung", "grabart": "Baumbestattung", "trauerfeier": "Weltlich"},
+  "organspende": {"entscheidung": "Registereintrag"},
+  "haustiere": [{"name": "Bello", "tierart": "Hund", "betreuungsperson": "Nachbarin Krause", "tierarzt": "Dr. Tierlieb"}],
+  "kontakte": [{"rolle": "Steuerberater", "name": "Herr Kalkuliert", "telefon": "0123 999888"}],
+  "versicherungen": [{"art": "Haftpflicht", "gesellschaft": "Versicherer AG", "police_ort": "Ordner Versicherungen"}],
+  "checkliste": {"1": "Erledigt", "2": "In Arbeit", "11": "Nicht zutreffend"},
+  "notfallkarte": {"aufbewahrung": "Wohnzimmer, grüner Ordner", "kontakt": "Erika Mustermann", "telefon": "0123 456789"}
+}

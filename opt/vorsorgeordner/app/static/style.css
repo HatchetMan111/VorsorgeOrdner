@@ -1,0 +1,144 @@
+:root {
+  --green: #2e7d32;
+  --green-dark: #1b5e20;
+  --green-light: #e8f5e9;
+  --amber: #fff8e1;
+  --amber-border: #f9a825;
+  --red: #fdecea;
+  --red-border: #c62828;
+  --gray: #607d8b;
+  --line: #cfd8dc;
+  --bg: #f4f7f4;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: #212121;
+  line-height: 1.55;
+}
+.container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+.hero {
+  background: linear-gradient(160deg, #ffffff 0%, var(--green-light) 100%);
+  border-bottom: 3px solid var(--green);
+  padding: 34px 0 22px;
+}
+.badge {
+  display: inline-block; font-size: .75rem; letter-spacing: .12em; font-weight: 700;
+  color: var(--green-dark); background: #ffffff; border: 1px solid var(--green);
+  border-radius: 999px; padding: 5px 14px; margin-bottom: 14px;
+}
+.hero h1 { margin: 0 0 8px; color: var(--green-dark); font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.lead { max-width: 760px; }
+
+.hint {
+  max-width: 820px; font-size: .86rem; border-radius: 10px;
+  padding: 10px 14px; margin-top: 12px; border: 1px solid;
+}
+.privacy { background: #ffffff; border-color: var(--line); }
+.disclaimer { background: var(--amber); border-color: var(--amber-border); }
+
+.progress-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 18px 0 6px; flex-wrap: wrap;
+}
+.progress { flex: 1 1 220px; height: 10px; background: #dde5dd; border-radius: 999px; overflow: hidden; }
+.progress-bar { height: 100%; width: 0%; background: var(--green); transition: width .3s ease; }
+.progress-text { font-size: .85rem; white-space: nowrap; }
+.save-status { font-size: .78rem; color: var(--green); min-width: 150px; text-align: right; }
+
+.tabs {
+  display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 14px;
+}
+.tab {
+  flex: 0 0 auto; border: 1px solid var(--line); background: #fff; color: #37474f;
+  border-radius: 8px; padding: 7px 13px; font-size: .82rem; cursor: pointer; white-space: nowrap;
+}
+.tab.active { background: var(--green); border-color: var(--green); color: #fff; font-weight: 600; }
+
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  padding: 18px 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.card h2 { margin: 0 0 4px; font-size: 1.05rem; color: var(--green-dark); }
+.card .intro { margin: 0 0 12px; font-size: .88rem; color: #455a64; }
+.legal {
+  font-size: .8rem; background: var(--amber); border: 1px solid var(--amber-border);
+  border-radius: 8px; padding: 8px 12px; margin: 0 0 14px;
+}
+.legal.warn { background: var(--red); border-color: var(--red-border); }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+.grid .full { grid-column: 1 / -1; }
+@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+
+.field label { display: block; font-size: .8rem; font-weight: 600; color: #37474f; margin-bottom: 4px; }
+.field input[type=text], .field input[type=date], .field select, .field textarea {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px;
+  font: inherit; font-size: .92rem; background: #fbfdfb;
+}
+.field textarea { min-height: 74px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--green-light); border-color: var(--green);
+}
+.checks { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 12px; font-size: .84rem; cursor: pointer; background: #fff;
+  user-select: none;
+}
+.chip input { accent-color: var(--green); }
+.chip.on { background: var(--green-light); border-color: var(--green); }
+
+.list-items { display: flex; flex-direction: column; gap: 12px; margin-bottom: 10px; }
+.list-item { border: 1px dashed var(--line); border-radius: 10px; padding: 12px; position: relative; }
+.list-item .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.list-item .remove {
+  position: absolute; top: 8px; right: 8px; border: none; background: var(--red);
+  color: var(--red-border); border-radius: 6px; cursor: pointer; font-weight: 700; padding: 2px 9px;
+}
+.btn.add { margin-top: 4px; }
+
+.navrow { display: flex; gap: 10px; justify-content: space-between; margin: 8px 0 26px; }
+.btn {
+  border: none; border-radius: 9px; padding: 11px 20px; font: inherit; font-weight: 600;
+  cursor: pointer; transition: filter .15s ease;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.primary { background: var(--green); color: #fff; }
+.btn.secondary { background: #eceff1; color: #37474f; }
+.btn.success { background: var(--green-dark); color: #fff; }
+.btn.danger { background: var(--red); color: var(--red-border); }
+.btn.small { padding: 7px 13px; font-size: .84rem; }
+.hidden { display: none !important; }
+
+.exportrow { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 14px 0; }
+
+.checkrow {
+  display: grid; grid-template-columns: 34px 1fr 190px; gap: 10px; align-items: start;
+  padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+.checkrow .num { font-weight: 700; color: var(--green-dark); }
+.checkrow .titel { font-weight: 600; font-size: .92rem; }
+.checkrow .hinttext { font-size: .78rem; color: #546e7a; }
+@media (max-width: 700px) { .checkrow { grid-template-columns: 28px 1fr; } .checkrow select { grid-column: 1 / -1; } }
+
+.notfallkarte {
+  width: 320px; border: 2px solid var(--green); border-radius: 12px; overflow: hidden;
+  font-size: .88rem; background: #fff;
+}
+.notfallkarte .nk-head { background: var(--green-light); font-weight: 700; text-align: center; padding: 8px; }
+.notfallkarte .nk-body { padding: 10px 14px 14px; }
+.notfallkarte .nk-line { margin: 6px 0; border-bottom: 1px dotted var(--line); min-height: 20px; }
+
+.errorbox {
+  background: var(--red); border: 1px solid var(--red-border); border-radius: 10px;
+  padding: 12px 14px; margin-bottom: 18px; font-size: .84rem;
+}
+.errorbox pre { white-space: pre-wrap; word-break: break-word; background: #ffffffaa; padding: 8px; border-radius: 6px; overflow-x: auto; }
+
+.appfoot { text-align: center; font-size: .8rem; color: var(--gray); padding: 18px 0 30px; }
+.appfoot a { color: var(--green); }

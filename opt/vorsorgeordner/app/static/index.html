@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vorsorge-Ordner</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="container">
+    <div class="badge"><span class="badge-icon">🛡</span> DIGITALER VORSORGE-ORDNER</div>
+    <h1>Dein vollständiger Vorsorge-Ordner</h1>
+    <p class="lead">Fülle alle Angaben einmal in Ruhe aus. Am Ende erstellst du dir einen kompletten,
+    ausgedruckten Ordner mit Register für jedes wichtige Dokument – inklusive Platz, um Originale und
+    handschriftliche Angaben (z.&nbsp;B. Passwörter) später von Hand einzufügen.</p>
+    <div class="hint privacy">🔒 <b>Datenschutz:</b> Alle Angaben werden automatisch in diesem Browser gespeichert
+    (lokal, nicht auf einem Server). Trage hier niemals echte Passwörter ein – ergänze sie handschriftlich im
+    ausgedruckten Ordner.</div>
+    <div class="hint disclaimer">⚠️ Dieser Ordner ist eine Organisationshilfe und ersetzt keine Rechtsberatung.
+    Für die Wirksamkeit einzelner Dokumente gelten gesetzliche Formvorschriften – Einzelheiten auf der letzten
+    Seite des PDFs. Lass dich bei Unsicherheiten von Notar, Anwalt bzw. Hausarzt beraten.</div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="progress-row">
+    <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+    <span id="progressText" class="progress-text">0 % der Checkliste erledigt</span>
+    <span id="saveStatus" class="save-status"></span>
+  </div>
+
+  <nav id="tabs" class="tabs" aria-label="Schritte"></nav>
+
+  <section id="wizard" aria-live="polite"></section>
+
+  <div class="navrow">
+    <button id="btnPrev" class="btn secondary">← Zurück</button>
+    <button id="btnNext" class="btn primary">Weiter →</button>
+    <button id="btnFinish" class="btn success hidden">Fertig</button>
+  </div>
+
+  <div id="errorBox" class="errorbox hidden"></div>
+
+  <footer class="appfoot">
+    Vorsorge-Ordner · lokal gehostet · Daten bleiben in deinem Browser ·
+    <a href="/api/health">Status</a>
+  </footer>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
