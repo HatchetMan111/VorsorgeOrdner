@@ -209,6 +209,8 @@ const STEPS = [
           F("sorgerecht.status", "Status", "select", { options: ["Offen", "In Arbeit", "Erstellt"] }),
           F("sorgerecht.vormund.name", "Zum Vormund bestimmt"),
           F("sorgerecht.ersatz_vormund.name", "Ersatz-Vormund"),
+          F("sorgerecht.vormund.anschrift", "Anschrift Vormund"),
+          F("sorgerecht.ersatz_vormund.anschrift", "Anschrift Ersatz-Vormund"),
           F("sorgerecht.aufbewahrung", "Aufbewahrungsort"),
           F("sorgerecht.erziehungswuensche", "Erziehungswünsche", "textarea", { full: true }),
         ],
@@ -294,7 +296,7 @@ const STEPS = [
           F("urkunden.geburtsurkunde", "Geburtsurkunde"),
           F("urkunden.heiratsurkunde", "Heiratsurkunde"),
           F("urkunden.scheidungsurteil", "Scheidungsurteil"),
-          F("urkunden.ausweikopie", "Personalausweis-Kopie"),
+          F("urkunden.ausweiskopie", "Personalausweis-Kopie"),
           F("urkunden.weitere", "Weitere Urkunden", "textarea", { full: true }),
         ],
       },
@@ -431,6 +433,7 @@ const STEPS = [
 /* ------------------------------- Utilities ------------------------------ */
 const $ = (sel, el = document) => el.querySelector(sel);
 const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
+const escHtml = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 function getByPath(obj, path) {
   return path.split(".").reduce((acc, key) => (acc == null ? undefined : acc[key]), obj);
@@ -583,11 +586,11 @@ function finalExtrasHTML() {
       <div class="nk-head">MEIN VORSORGE-ORDNER</div>
       <div class="nk-body">
         <div style="font-size:.78rem;color:#607d8b">Meine Vorsorgedokumente liegen bei:</div>
-        <div class="nk-line">${nk.aufbewahrung || "&nbsp;"}</div>
+        <div class="nk-line">${escHtml(nk.aufbewahrung) || "&nbsp;"}</div>
         <div style="font-size:.78rem;color:#607d8b">Kontaktperson:</div>
-        <div class="nk-line">${nk.kontakt || "&nbsp;"}</div>
+        <div class="nk-line">${escHtml(nk.kontakt) || "&nbsp;"}</div>
         <div style="font-size:.78rem;color:#607d8b">Telefon:</div>
-        <div class="nk-line">${nk.telefon || "&nbsp;"}</div>
+        <div class="nk-line">${escHtml(nk.telefon) || "&nbsp;"}</div>
       </div>
     </div>
   </div>
@@ -717,14 +720,13 @@ function renderNotfallPreview() {
   const card = $(".notfallkarte .nk-body");
   if (!card) return;
   const nk = state.notfallkarte;
-  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   card.innerHTML = `
     <div style="font-size:.78rem;color:#607d8b">Meine Vorsorgedokumente liegen bei:</div>
-    <div class="nk-line">${esc(nk.aufbewahrung) || "&nbsp;"}</div>
+    <div class="nk-line">${escHtml(nk.aufbewahrung) || "&nbsp;"}</div>
     <div style="font-size:.78rem;color:#607d8b">Kontaktperson:</div>
-    <div class="nk-line">${esc(nk.kontakt) || "&nbsp;"}</div>
+    <div class="nk-line">${escHtml(nk.kontakt) || "&nbsp;"}</div>
     <div style="font-size:.78rem;color:#607d8b">Telefon:</div>
-    <div class="nk-line">${esc(nk.telefon) || "&nbsp;"}</div>`;
+    <div class="nk-line">${escHtml(nk.telefon) || "&nbsp;"}</div>`;
 }
 
 $("#tabs").addEventListener("click", e => {

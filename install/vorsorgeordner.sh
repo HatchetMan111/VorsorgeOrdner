@@ -172,7 +172,7 @@ Type=simple
 User=${APP}
 Group=${APP}
 WorkingDirectory=${SRC_DIR}/app
-ExecStart=${APP_DIR}/venv/bin/uvicorn main:app --host 0.0.0.0 --port ${PORT}
+ExecStart=${SRC_DIR}/venv/bin/uvicorn main:app --host 0.0.0.0 --port ${PORT}
 Restart=always
 RestartSec=3
 Environment=PYTHONUNBUFFERED=1
